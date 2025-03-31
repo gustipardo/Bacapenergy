@@ -1,0 +1,201 @@
+---
+// src/components/Navbar.astro
+---
+
+<nav
+  class="flex items-center justify-between w-full px-6 py-0 bg-[#FEC52C] text-[#545454] shadow-md"
+>
+  <!-- Logo para móvil y desktop -->
+  <a href="/" class="z-30">
+    <img
+      src="/bacapenergy.jpeg"
+      alt="Logo Empresa Electricista"
+      class="h-24 md:h-26"
+    />
+    <span class="sr-only">Electricista Profesional</span>
+  </a>
+
+  <!-- Botón de menú móvil -->
+  <button
+    class="relative z-30 lg:hidden flex items-center mr-6"
+    id="menuButton"
+    aria-label="Toggle menu"
+  >
+    <!-- Icono hamburguesa -->
+    <svg
+      width="30"
+      height="30"
+      viewBox="0 0 24 24"
+      fill="#545454"
+      class="menu-icon hamburger absolute transition-all duration-300 ease-in-out"
+    >
+      <rect y="5" width="24" height="2" rx="1"></rect>
+      <rect y="11" width="24" height="2" rx="1"></rect>
+      <rect y="17" width="24" height="2" rx="1"></rect>
+    </svg>
+
+    <!-- Icono cerrar -->
+    <svg
+      width="30"
+      height="30"
+      viewBox="0 0 24 24"
+      fill="#545454"
+      class="menu-icon close absolute transition-all duration-300 ease-in-out opacity-0"
+    >
+      <rect x="4" y="4" width="24" height="2" rx="1" transform="rotate(45 4 4)"
+      ></rect>
+      <rect
+        x="4"
+        y="20"
+        width="24"
+        height="2"
+        rx="1"
+        transform="rotate(-45 4 20)"></rect>
+    </svg>
+  </button>
+
+  <!-- Menú desktop -->
+  <ul class="hidden lg:flex lg:gap-8 items-center">
+    <li>
+      <a href="/" class="py-2 px-3 hover:text-[#545454]/80 transition-colors"
+        >Inicio</a
+      >
+    </li>
+    <li>
+      <a
+        href="/servicios"
+        class="py-2 px-3 hover:text-[#545454]/80 transition-colors">Servicios</a
+      >
+    </li>
+    <li>
+      <a
+        href="/quienes-somos"
+        class="py-2 px-3 hover:text-[#545454]/80 transition-colors"
+        >Quienes Somos</a
+      >
+    </li>
+    <li>
+      <a
+        href="/contacto"
+        class="py-2 px-3 bg-[#545454] text-[#FEC52C] rounded-md hover:bg-[#545454]/90 transition-colors"
+        >Contacto</a
+      >
+    </li>
+  </ul>
+
+  <!-- Overlay para menú móvil -->
+  <div
+    id="mobileOverlay"
+    class="fixed top-0 left-0 w-screen h-screen bg-black/80 transition-opacity duration-300 ease-in-out lg:hidden opacity-0 -z-10"
+  >
+  </div>
+
+  <!-- Sidebar móvil -->
+  <div
+    id="mobileSidebar"
+    class="fixed top-0 right-0 w-64 h-screen bg-[#FEC52C] shadow-lg transform transition-transform duration-300 ease-in-out lg:hidden translate-x-full z-20"
+  >
+    <div class="flex flex-col h-full pt-20 px-6">
+      <ul class="flex flex-col gap-6">
+        <li>
+          <a
+            href="/"
+            class="block py-2 border-b border-[#545454] hover:text-[#545454]/80 transition-colors"
+            >Inicio</a
+          >
+        </li>
+        <li>
+          <a
+            href="/servicios"
+            class="block py-2 border-b border-[#545454] hover:text-[#545454]/80 transition-colors"
+            >Servicios</a
+          >
+        </li>
+        <li>
+          <a
+            href="/quienes-somos"
+            class="block py-2 border-b border-[#545454] hover:text-[#545454]/80 transition-colors"
+            >Quienes Somos</a
+          >
+        </li>
+        <li>
+          <a
+            href="/contacto"
+            class="block py-2 mt-4 text-center bg-[#545454] text-[#FEC52C] rounded-md hover:bg-[#545454]/90 transition-colors"
+            >Contacto</a
+          >
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Gestión del menú móvil
+  const menuButton = document.querySelector("#menuButton");
+  const mobileOverlay = document.querySelector("#mobileOverlay");
+  const mobileSidebar = document.querySelector("#mobileSidebar");
+  const hamburgerIcon = document.querySelector(".menu-icon.hamburger");
+  const closeIcon = document.querySelector(".menu-icon.close");
+
+  let menuOpen = false;
+
+  function toggleMenu(isOpen: boolean) {
+    menuOpen = isOpen;
+
+    if (isOpen) {
+      // Abrir menú
+      document.body.classList.add("overflow-hidden");
+      mobileOverlay?.classList.remove("opacity-0", "-z-10");
+      mobileOverlay?.classList.add("opacity-100", "z-10");
+
+      mobileSidebar?.classList.remove("translate-x-full");
+      mobileSidebar?.classList.add("translate-x-0");
+
+      hamburgerIcon?.classList.add("opacity-0");
+      closeIcon?.classList.remove("opacity-0");
+    } else {
+      // Cerrar menú
+      document.body.classList.remove("overflow-hidden");
+      mobileOverlay?.classList.add("opacity-0", "-z-10");
+      mobileOverlay?.classList.remove("opacity-100", "z-10");
+
+      mobileSidebar?.classList.add("translate-x-full");
+      mobileSidebar?.classList.remove("translate-x-0");
+
+      hamburgerIcon?.classList.remove("opacity-0");
+      closeIcon?.classList.add("opacity-0");
+    }
+  }
+
+  menuButton?.addEventListener("click", (e) => {
+    e.stopPropagation();
+    toggleMenu(!menuOpen);
+  });
+
+  mobileOverlay?.addEventListener("click", () => {
+    toggleMenu(false);
+  });
+
+  // Cerrar al hacer clic en cualquier enlace del menú móvil
+  const mobileLinks = mobileSidebar?.querySelectorAll("a");
+  mobileLinks?.forEach((link) => {
+    link.addEventListener("click", () => {
+      toggleMenu(false);
+    });
+  });
+
+  // Cerrar al presionar la tecla Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && menuOpen) {
+      toggleMenu(false);
+    }
+  });
+</script>
+
+<style>
+  /* Estilos adicionales para animaciones */
+  .menu-icon {
+    transition: all 0.3s ease-in-out;
+  }
+</style>
