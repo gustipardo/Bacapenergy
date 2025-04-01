@@ -1,0 +1,59 @@
+---
+const servicios = [
+  {
+    titulo: "Instalaciones Eléctricas",
+    imagen: "/Capacitores 2.webp",
+    descripcion:
+      "Instalaciones eléctricas residenciales e industriales con los más altos estándares de seguridad",
+  },
+  {
+    titulo: "Bancos de Capacitores",
+    imagen: "/Capacitores 2.webp",
+    descripcion:
+      "Solución eficiente para la corrección del factor de potencia y optimización energética",
+  },
+  {
+    titulo: "Automatización PLC",
+    imagen: "/Capacitores 2.webp",
+    descripcion:
+      "Control y automatización industrial con tecnología PLC de última generación",
+  },
+  {
+    titulo: "Mantenimiento Preventivo",
+    imagen: "/Capacitores 2.webp",
+    descripcion:
+      "Servicios de mantenimiento preventivo y correctivo para sistemas eléctricos",
+  },
+];
+---
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl md:text-5xl font-bold text-[#545454] text-center mb-12">
+      Nuestros Servicios
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {
+        servicios.map((servicio) => (
+          <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
+            <div class="aspect-w-16 aspect-h-9">
+              <img
+                src={servicio.imagen}
+                alt={servicio.titulo}
+                class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
+              />
+            </div>
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div class="absolute bottom-0 left-0 right-0 p-6">
+                <h3 class="text-xl font-bold text-white mb-2">
+                  {servicio.titulo}
+                </h3>
+                <p class="text-white/90 text-sm">{servicio.descripcion}</p>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

@@ -1,6 +1,81 @@
 ---
 import "../styles/global.css";
-import NavBar from "../components/NavBar.astro";
+import Layout from "../layouts/Layout.astro";
+import Servicios from "../components/Servicios.astro";
 ---
 
-<NavBar />
+<Layout title="Bacapenergy - Inicio">
+  <main>
+    <section
+      class="relative min-h-screen bg-white flex items-center justify-center overflow-hidden"
+    >
+      <!-- Fondo con patrón de circuitos -->
+      <div class="absolute inset-0 opacity-10">
+        <div
+          class="absolute inset-0 bg-[url('/circuit-pattern.svg')] bg-repeat opacity-20"
+        >
+        </div>
+      </div>
+
+      <!-- Contenido principal -->
+      <div class="container mx-auto px-4 z-10 pt-16 lg:pt-0">
+        <div
+          class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12"
+        >
+          <!-- Texto -->
+          <div class="flex-1 text-center lg:text-left max-w-2xl">
+            <h1
+              class="text-4xl md:text-6xl font-bold text-[#545454] mb-6 leading-tight"
+            >
+              Soluciones Eléctricas
+              <span class="block text-3xl md:text-5xl mt-2"
+                >Inteligentes y Eficientes</span
+              >
+            </h1>
+            <p class="text-lg md:text-xl text-[#545454]/90 mb-8">
+              Especialistas en instalaciones eléctricas, bancos de capacitores y
+              automatización industrial con PLC
+            </p>
+            <div
+              class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+            >
+              <a
+                href="/contacto"
+                class="bg-[#FEC52C] text-[#545454] px-8 py-4 rounded-md text-lg font-semibold hover:bg-[#FEC52C]/90 transition-colors text-center"
+              >
+                Solicitar Cotización
+              </a>
+              <a
+                href="/servicios"
+                class="bg-transparent border-2 border-[#FEC52C] text-[#FEC52C] px-8 py-4 rounded-md text-lg font-semibold hover:bg-[#FEC52C] hover:text-[#545454] transition-colors text-center"
+              >
+                Ver Servicios
+              </a>
+            </div>
+          </div>
+
+          <!-- Imagen -->
+          <div class="flex-1 flex justify-center lg:justify-end">
+            <img
+              src="/landing2.webp"
+              alt="Capacitor Industrial"
+              class="w-full max-w-lg"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Elementos decorativos -->
+      <div
+        class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"
+      >
+      </div>
+      <div
+        class="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-white to-transparent"
+      >
+      </div>
+    </section>
+
+    <Servicios />
+  </main>
+</Layout>
