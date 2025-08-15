@@ -154,7 +154,7 @@ import Servicios from "../components/Servicios.astro";
           <div class="px-6 pb-6">
             <div class="flex flex-col md:flex-row items-center gap-6">
               <div class="flex-1">
-                <img src="/servicio-tarifa.jpg" alt="Cambio de Tarifa" class="w-full h-48 object-cover rounded-lg" />
+                <img src="/bacapenergy.jpeg" alt="Cambio de Tarifa" class="w-full h-48 object-cover rounded-lg" />
               </div>
               <div class="flex-1">
                 <p class="text-black/80 text-sm leading-relaxed">
@@ -334,10 +334,14 @@ const estimatedFactorPerCard = 1.4; // Aumentamos el factor para más espacio
 const extraSpaceForLastCard = 1.0; // Espacio adicional para que se contraiga la última
 const endDistance = () => "+=" + Math.round(window.innerHeight * (servicios.length * estimatedFactorPerCard + extraSpaceForLastCard));
 
+function getStartPosition() {
+  return window.innerWidth <= 768 ? "top 6%" : "top 12%";
+}
+
 const serviciosTimeline = gsap.timeline({
   scrollTrigger: {
     trigger: "#servicios-section",
-    start: "top 12%",        // cuando la sección llegue a top del viewport
+    start: getStartPosition(),        // cuando la sección llegue a top del viewport
     end: endDistance,        // duracion del pin (dinámica con más espacio)
     scrub: 0.8,              // suaviza la relación scroll <-> tiempo
     pin: true,               // fija la sección mientras se anima
