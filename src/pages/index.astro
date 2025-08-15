@@ -335,7 +335,7 @@ const extraSpaceForLastCard = 1.0; // Espacio adicional para que se contraiga la
 const endDistance = () => "+=" + Math.round(window.innerHeight * (servicios.length * estimatedFactorPerCard + extraSpaceForLastCard));
 
 function getStartPosition() {
-  return window.innerWidth <= 768 ? "top 6%" : "top 12%";
+  return window.innerWidth <= 768 ? "top 7.5%" : "top 12%";
 }
 
 const serviciosTimeline = gsap.timeline({
