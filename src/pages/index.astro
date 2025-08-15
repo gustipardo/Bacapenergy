@@ -7,40 +7,41 @@ import Servicios from "../components/Servicios.astro";
 <Layout title="Bacapenergy - Inicio">
   <main>
     <section
-      class="relative min-h-screen bg-white flex items-center justify-center overflow-hidden"
+      class="relative min-h-[85vh] bg-white flex items-center justify-center overflow-hidden"
     >
       <!-- Fondo con patrón de circuitos -->
-      <div class="absolute inset-0 opacity-10">
-        <div
+      <div class="absolute inset-0 opacity-10 z-1">
+        <div id="hero-image"
           class="absolute inset-0 bg-[url('/circuit-pattern.svg')] bg-repeat opacity-20"
         >
         </div>
       </div>
 
       <!-- Contenido principal -->
-      <div class="container mx-auto px-4 z-10 pt-16 lg:pt-0">
+      <div class="container mx-auto px-4 z-10 pt-8 lg:pt-0">
         <div
           class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-12"
         >
           <!-- Texto -->
           <div class="flex-1 text-center lg:text-left max-w-2xl">
             <h1
+              id="hero-title"
               class="text-4xl md:text-6xl font-bold text-[#545454] mb-6 leading-tight"
             >
-              Soluciones Eléctricas
+              Certificaciones Elécticas
               <span class="block text-3xl md:text-5xl mt-2"
-                >Inteligentes y Eficientes</span
+                >Rápidas y eficientes</span
               >
             </h1>
             <p class="text-lg md:text-xl text-[#545454]/90 mb-8">
-              Especialistas en instalaciones eléctricas, bancos de capacitores y
-              automatización industrial con PLC
+              Técnicos e ingenieros especializados
             </p>
             <div
               class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
             >
               <a
                 href="/contacto"
+                id="cotizacionBtn"
                 class="bg-[#FEC52C] text-[#545454] px-8 py-4 rounded-md text-lg font-semibold hover:bg-[#FEC52C]/90 transition-colors text-center"
               >
                 Solicitar Cotización
@@ -60,6 +61,7 @@ import Servicios from "../components/Servicios.astro";
               src="/landing2.webp"
               alt="Capacitor Industrial"
               class="w-full max-w-lg"
+              id="heroImage"
             />
           </div>
         </div>
@@ -76,6 +78,337 @@ import Servicios from "../components/Servicios.astro";
       </div>
     </section>
 
-    <Servicios />
+    <!-- SEPARADOR ELEGANTE - Opción 1: Gradiente con patrón -->
+    <div class="relative py-16 bg-gradient-to-b from-white via-gray-50 to-white overflow-hidden">
+      <!-- Patrón de fondo sutil -->
+      <div class="absolute inset-0 opacity-5">
+        <div class="w-full h-full bg-[url('/circuit-pattern.svg')] bg-repeat-x bg-center"></div>
+      </div>
+      
+      <!-- Línea decorativa central -->
+      <div class="relative flex items-center justify-center h-px">
+        <div class="flex items-center gap-4">
+          <div class="w-48 h-px bg-gradient-to-r from-transparent to-[#FEC52C]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#FEC52C] shadow-lg"></div>
+          <div class="w-56 h-px bg-gradient-to-r from-[#FEC52C] to-[#545454]"></div>
+          <div class="w-3 h-3 rounded-full bg-[#545454] shadow-lg"></div>
+          <div class="w-48 h-px bg-gradient-to-l from-transparent to-[#545454]"></div>
+        </div>
+      </div>
+      
+    </div>
+
+<section class="bg-white" id="servicios-section">
+  <div class="container mx-auto px-4">
+    <h2 class="text-4xl md:text-5xl font-bold text-[#545454] text-center mb-6" id="servicios-title">
+      Nuestros Servicios
+    </h2>
+
+    <div class="space-y-6 max-w-4xl mx-auto" id="servicios-container">
+      
+      <!-- Servicio 1: Nuevo Suministro T1 -->
+      <div class="bg-yellow-400 rounded-xl overflow-hidden shadow-md cursor-pointer" id="servicio-t1">
+        <!-- Título (siempre visible) -->
+        <div class="text-center py-6" id="servicio-t1-header">
+          <h3 class="text-lg md:text-xl font-semibold text-black">
+            Nuevo Suministro T1
+          </h3>
+        </div>
+        
+        <!-- Contenido expandible (inicialmente oculto) -->
+        <div class="opacity-0 h-0 overflow-hidden" id="servicio-t1-content">
+          <div class="px-6 pb-6">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+              <div class="flex-1">
+                <img src="/servicio-t1.jpg" alt="Suministro T1" class="w-full h-48 object-cover rounded-lg" />
+              </div>
+              <div class="flex-1">
+                <p class="text-black/80 text-sm leading-relaxed">
+                  Instalación y gestión completa para contar con energía eléctrica en viviendas o pequeños comercios. 
+                  Nos encargamos de todos los trámites ante la distribuidora eléctrica, cumpliendo con las normativas vigentes. 
+                  Incluye diseño de la instalación, materiales certificados y puesta en servicio.
+                </p>
+                <ul class="mt-4 text-xs text-black/70 space-y-1">
+                  <li>• Gestión de trámites administrativos</li>
+                  <li>• Instalación eléctrica completa</li>
+                  <li>• Materiales certificados incluidos</li>
+                  <li>• Garantía de 2 años</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicio 2: Cambio de Tarifa -->
+      <div class="bg-yellow-400 rounded-xl overflow-hidden shadow-md cursor-pointer" id="servicio-cambio-tarifa">
+        <!-- Título (siempre visible) -->
+        <div class="text-center py-6" id="servicio-cambio-tarifa-header">
+          <h3 class="text-lg md:text-xl font-semibold text-black">
+            Cambio de tarifa (T1 a T2)
+          </h3>
+        </div>
+        
+        <!-- Contenido expandible (inicialmente oculto) -->
+        <div class="opacity-0 h-0 overflow-hidden" id="servicio-cambio-tarifa-content">
+          <div class="px-6 pb-6">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+              <div class="flex-1">
+                <img src="/servicio-tarifa.jpg" alt="Cambio de Tarifa" class="w-full h-48 object-cover rounded-lg" />
+              </div>
+              <div class="flex-1">
+                <p class="text-black/80 text-sm leading-relaxed">
+                  Tramitamos la modificación de tu tarifa eléctrica de T1 a T2 para optimizar el consumo y reducir costos significativamente. 
+                  Ideal para comercios y pequeñas industrias que requieren mayor potencia. Analizamos tu consumo actual para garantizar el máximo ahorro.
+                </p>
+                <ul class="mt-4 text-xs text-black/70 space-y-1">
+                  <li>• Análisis de consumo actual</li>
+                  <li>• Gestión ante distribuidora</li>
+                  <li>• Adecuación de instalaciones</li>
+                  <li>• Ahorro estimado del 15-25%</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Servicio 3: Certificado SRT -->
+      <div class="bg-yellow-400 rounded-xl overflow-hidden shadow-md cursor-pointer" id="servicio-certificado">
+        <!-- Título (siempre visible) -->
+        <div class="text-center py-6" id="servicio-certificado-header">
+          <h3 class="text-lg md:text-xl font-semibold text-black">
+            Certificado de puesta a tierra SRT 900/2015
+          </h3>
+        </div>
+        
+        <!-- Contenido expandible (inicialmente oculto) -->
+        <div class="opacity-0 h-0 overflow-hidden" id="servicio-certificado-content">
+          <div class="px-6 pb-6">
+            <div class="flex flex-col md:flex-row items-center gap-6">
+              <div class="flex-1">
+                <img src="/servicio-certificado.jpg" alt="Certificado SRT" class="w-full h-48 object-cover rounded-lg" />
+              </div>
+              <div class="flex-1">
+                <p class="text-black/80 text-sm leading-relaxed">
+                  Inspección y certificación oficial que garantiza la seguridad eléctrica de tu instalación según normativa SRT 900/2015. 
+                  Documento obligatorio para empresas y comercios. Realizamos mediciones técnicas, evaluación de riesgos y emisión del certificado oficial.
+                </p>
+                <ul class="mt-4 text-xs text-black/70 space-y-1">
+                  <li>• Inspección técnica completa</li>
+                  <li>• Mediciones de resistencia</li>
+                  <li>• Certificado oficial SRT</li>
+                  <li>• Válido por 5 años</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
   </main>
 </Layout>
+
+<script>
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
+
+gsap.from("#hero-title", {
+  y: 20,
+  opacity: 0,
+  duration: 1.5,
+  ease: "power2.out",	
+});
+
+gsap.from("#hero-second-title", {
+  scrollTrigger: {
+    trigger: "#hero-second-title",
+    start: "top 60%",
+    toggleActions: "play none none none",
+  },
+  y: 20,
+  opacity: 0,
+  duration: 1.5,
+  ease: "power2.out",
+});
+
+/* ---------- Ajustes CSS recomendados (añade en tu CSS si no están) ----------
+#servicios-section { overflow: hidden; }               <-- evita saltos externos
+#servicios-container { position: relative; }           <-- contexto para animaciones
+#servicios-container > div { position: relative; }    <-- cada tarjeta relativa
+#servicios-container .card-content { overflow: hidden;} <-- ya lo garantizamos con JS
+-------------------------------------------------------------------------*/
+
+/* ---------- Inicial: asegurarnos que los contenidos empiezan colapsados ---------- */
+const contentIds = [
+  "#servicio-t1-content",
+  "#servicio-cambio-tarifa-content",
+  "#servicio-certificado-content"
+];
+
+// set inicial (altura 0, ocultos)
+contentIds.forEach(id => {
+  const el = document.querySelector(id);
+  if (el) {
+    gsap.set(el, { height: 0, opacity: 0, overflow: "hidden" });
+  }
+});
+
+/* ---------- Funciones utilitarias: expandir / contraer midiendo scrollHeight ---------- */
+function expandirServicio(servicioId) {
+  const sel = `${servicioId}-content`;
+  const el = document.querySelector(sel);
+  if (!el) return gsap.timeline(); // timeline vacío si no existe
+
+  // mide la altura real
+  const fullH = el.scrollHeight;
+
+  // timeline que anima a px (no auto)
+  return gsap.timeline()
+    .to(el, {
+      height: fullH,
+      opacity: 1,
+      duration: 0.8,
+      ease: "power2.out"
+    })
+    .from(`${sel} img`, {
+      scale: 0.85,
+      opacity: 0,
+      duration: 0.6,
+      ease: "back.out(1.4)"
+    }, "-=0.45")
+    .from(`${sel} p, ${sel} ul`, {
+      y: 18,
+      opacity: 0,
+      duration: 0.45,
+      stagger: 0.08,
+      ease: "power2.out"
+    }, "-=0.35")
+    // mantener la altura fija en px (no volver a 'auto' hasta que termine todo el pin)
+    .add(() => gsap.set(el, { height: fullH }));
+}
+
+function contraerServicio(servicioId) {
+  const sel = `${servicioId}-content`;
+  const el = document.querySelector(sel);
+  if (!el) return gsap.timeline();
+
+  // Si la altura estaba en 'auto' (defensivo) la medimos; en nuestro flujo ya será px.
+  const currentH = el.scrollHeight;
+
+  return gsap.timeline()
+    .to(`${sel} p, ${sel} ul`, {
+      y: -12,
+      opacity: 0,
+      duration: 0.28,
+      stagger: 0.05,
+      ease: "power2.in"
+    })
+    .to(`${sel} img`, {
+      scale: 0.85,
+      opacity: 0,
+      duration: 0.35,
+      ease: "power2.in"
+    }, "-=0.18")
+    .to(el, {
+      height: 0,
+      opacity: 0,
+      duration: 0.45,
+      ease: "power2.in"
+    }, "-=0.25");
+}
+
+/* ---------- Timeline principal para la sección (pin + secuencia) ---------- */
+const servicios = [
+  "#servicio-t1",
+  "#servicio-cambio-tarifa",
+  "#servicio-certificado"
+];
+
+// Calculamos un end dinámico con más espacio para que la última tarjeta se contraiga
+const estimatedFactorPerCard = 1.4; // Aumentamos el factor para más espacio
+const extraSpaceForLastCard = 1.0; // Espacio adicional para que se contraiga la última
+const endDistance = () => "+=" + Math.round(window.innerHeight * (servicios.length * estimatedFactorPerCard + extraSpaceForLastCard));
+
+const serviciosTimeline = gsap.timeline({
+  scrollTrigger: {
+    trigger: "#servicios-section",
+    start: "top 12%",        // cuando la sección llegue a top del viewport
+    end: endDistance,        // duracion del pin (dinámica con más espacio)
+    scrub: 0.8,              // suaviza la relación scroll <-> tiempo
+    pin: true,               // fija la sección mientras se anima
+    anticipatePin: 1,
+    // markers: true,        // usa markers en dev si quieres depurar
+  }
+});
+
+/* Construimos la secuencia: abrir 1 -> mostrar -> cerrar 1 + abrir 2 -> ... */
+serviciosTimeline
+  .add(expandirServicio(servicios[0]))
+  .to({}, { duration: 0.5 }) // pequeña pausa para "ver" el contenido
+  .add(contraerServicio(servicios[0]))
+  .add(expandirServicio(servicios[1]), "-=0.25")
+  .to({}, { duration: 0.5 })
+  .add(contraerServicio(servicios[1]))
+  .add(expandirServicio(servicios[2]), "-=0.25")
+  .to({}, { duration: 0.6 }) // Pausa más larga para ver la última tarjeta
+  .add(contraerServicio(servicios[2]))
+  .to({}, { duration: 0.4 }); // Espacio adicional al final para que se complete la contracción
+
+/* ---------- Callbacks para cuando la sección se destapa (se termina el pin) ---------- */
+/* Cuando el usuario continúa y deja la sección (onLeave), dejamos todo contraído y
+   limpiamos alturas fijas para que el layout vuelva a ser responsivo. */
+serviciosTimeline.scrollTrigger && (function(st) {
+  st.vars.onLeave = function() {
+    // asegurar todo contraído (estado final)
+    contentIds.forEach(id => {
+      const el = document.querySelector(id);
+      if (el) {
+        gsap.set(el, { height: 0, opacity: 0 });
+        el.style.overflow = "hidden";
+      }
+    });
+  };
+
+  // Si vuelve hacia arriba (enterBack) queremos tener las tarjetas en el estado inicial también
+  st.vars.onEnterBack = function() {
+    contentIds.forEach(id => {
+      const el = document.querySelector(id);
+      if (el) {
+        gsap.set(el, { height: 0, opacity: 0, overflow: "hidden" });
+      }
+    });
+  };
+})(serviciosTimeline.scrollTrigger);
+
+/* ---------- Animación entrada del título (opcional, igual que antes) ---------- */
+gsap.from("#servicios-title", {
+  scrollTrigger: {
+    trigger: "#servicios-title",
+    start: "top 80%",
+    toggleActions: "play none none reverse",
+  },
+  y: 30,
+  opacity: 0,
+  duration: 1,
+  ease: "power2.out"
+});
+
+/* ---------- Opcional: headers de tarjetas ---------- */
+gsap.from("#servicio-t1-header, #servicio-cambio-tarifa-header, #servicio-certificado-header", {
+  scrollTrigger: {
+    trigger: "#servicios-container",
+    start: "top 75%",
+    toggleActions: "play none none reverse",
+  },
+  y: 18,
+  opacity: 0,
+  duration: 0.7,
+  stagger: 0.15,
+  ease: "power2.out"
+});
+</script>

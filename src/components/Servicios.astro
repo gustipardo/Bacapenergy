@@ -1,59 +1,36 @@
----
-const servicios = [
-  {
-    titulo: "Instalaciones Eléctricas",
-    imagen: "/Capacitores 2.webp",
-    descripcion:
-      "Instalaciones eléctricas residenciales e industriales con los más altos estándares de seguridad",
-  },
-  {
-    titulo: "Bancos de Capacitores",
-    imagen: "/Capacitores 2.webp",
-    descripcion:
-      "Solución eficiente para la corrección del factor de potencia y optimización energética",
-  },
-  {
-    titulo: "Automatización PLC",
-    imagen: "/Capacitores 2.webp",
-    descripcion:
-      "Control y automatización industrial con tecnología PLC de última generación",
-  },
-  {
-    titulo: "Mantenimiento Preventivo",
-    imagen: "/Capacitores 2.webp",
-    descripcion:
-      "Servicios de mantenimiento preventivo y correctivo para sistemas eléctricos",
-  },
-];
----
-
-<section class="py-20 bg-white">
+<section class="bg-white py-12">
   <div class="container mx-auto px-4">
     <h2 class="text-4xl md:text-5xl font-bold text-[#545454] text-center mb-12">
       Nuestros Servicios
     </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-      {
-        servicios.map((servicio) => (
-          <div class="group relative overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <div class="aspect-w-16 aspect-h-9">
-              <img
-                src={servicio.imagen}
-                alt={servicio.titulo}
-                class="object-cover w-full h-full group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <div class="absolute bottom-0 left-0 right-0 p-6">
-                <h3 class="text-xl font-bold text-white mb-2">
-                  {servicio.titulo}
-                </h3>
-                <p class="text-white/90 text-sm">{servicio.descripcion}</p>
-              </div>
-            </div>
-          </div>
-        ))
-      }
+
+    <div class="space-y-6 max-w-lg mx-auto">
+      <div class="bg-yellow-400 rounded-xl text-center py-6 shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+        <h3 class="text-lg md:text-xl font-semibold text-black">
+          Nuevo Suministro T1
+        </h3>
+        <p class="mt-2 text-sm text-black/80 px-4">
+          Instalación y gestión completa para contar con energía eléctrica en viviendas o pequeños comercios, cumpliendo con las normativas vigentes.
+        </p>
+      </div>
+
+      <div class="bg-yellow-400 rounded-xl text-center py-6 shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+        <h3 class="text-lg md:text-xl font-semibold text-black">
+          Cambio de tarifa (T1 a T2)
+        </h3>
+        <p class="mt-2 text-sm text-black/80 px-4">
+          Tramitamos la modificación de tu tarifa eléctrica para optimizar el consumo y reducir costos.
+        </p>
+      </div>
+
+      <div class="bg-yellow-400 rounded-xl text-center py-6 shadow-md hover:shadow-lg transition-shadow duration-300 cursor-pointer">
+        <h3 class="text-lg md:text-xl font-semibold text-black">
+          Certificado de puesta a tierra SRT 900/2015
+        </h3>
+        <p class="mt-2 text-sm text-black/80 px-4">
+          Inspección y certificación oficial que garantiza la seguridad eléctrica de tu instalación según normativa.
+        </p>
+      </div>
     </div>
   </div>
 </section>

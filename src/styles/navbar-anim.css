@@ -1,0 +1,104 @@
+/* Animación de líneas en el borde inferior del navbar */
+.navbar-animated-border {
+  position: relative;
+}
+
+.navbar-animated-border .border-anim {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.navbar-animated-border .border-anim .line {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  border-radius: 2px;
+  transition: none;
+  transform: none;
+}
+
+.navbar-animated-border .border-anim .line-black {
+  background: #222;
+  animation: border-slide-black 6s ease-in-out infinite;
+  position: relative;
+}
+
+.navbar-animated-border .border-anim .line-black::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #222;
+  border-radius: 50%;
+  opacity: 1;
+}
+
+.navbar-animated-border .border-anim .line-yellow {
+  background: #FEC52C;
+  animation: border-slide-yellow 6s ease-in-out infinite;
+  animation-delay: 3s;
+  position: relative;
+}
+
+.navbar-animated-border .border-anim .line-yellow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: #FEC52C;
+  border-radius: 50%;
+  opacity: 1;
+}
+
+@keyframes border-slide-black {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0%;
+    left: 100%;
+  }
+}
+
+@keyframes border-slide-yellow {
+  0% {
+    width: 0%;
+    left: 0;
+  }
+  50% {
+    width: 100%;
+    left: 0;
+  }
+  100% {
+    width: 0%;
+    left: 100%;
+  }
+}
+
+/* Loop infinito con las nuevas animaciones */
+.navbar-animated-border .border-anim.loop .line-black {
+  animation: border-slide-black 6s ease-in-out infinite;
+}
+
+.navbar-animated-border .border-anim.loop .line-yellow {
+  animation: border-slide-yellow 6s ease-in-out infinite;
+  animation-delay: 3s;
+}
