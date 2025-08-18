@@ -2,12 +2,13 @@
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Servicios from "../components/Servicios.astro";
+import Trabajos from "../components/Trabajos.astro";
 ---
 
 <Layout title="Bacapenergy - Inicio">
   <main>
     <section
-      class="relative min-h-[85vh] bg-white flex items-center justify-center overflow-hidden"
+      class="relative min-h-[85vh] h-80 bg-white flex items-center justify-center overflow-hidden"
     >
       <!-- Fondo con patrón de circuitos -->
       <div class="absolute inset-0 opacity-10 z-1">
@@ -56,9 +57,9 @@ import Servicios from "../components/Servicios.astro";
           </div>
 
           <!-- Imagen -->
-          <div class="flex-1 flex justify-center lg:justify-end lg:mr-6">
+          <div class="flex-1 justify-center lg:justify-end lg:mr-6 hidden lg:flex">
             <img
-              src="/landing2.webp"
+              src="/DCI_Landing.png"
               alt="Capacitor Industrial"
               class="w-full max-w-lg"
               id="heroImage"
@@ -98,110 +99,79 @@ import Servicios from "../components/Servicios.astro";
       
     </div>
 
-<section class="bg-white" id="servicios-section">
+<section class="bg-white py-16" id="servicios-section">
   <div class="container mx-auto px-4">
-    <h2 class="text-4xl md:text-5xl font-bold text-[#545454] text-center mb-6" id="servicios-title">
+    <h2 class="text-4xl md:text-5xl font-bold text-[#545454] text-center mb-12" id="servicios-title">
       Nuestros Servicios
     </h2>
 
-    <div class="space-y-6 max-w-4xl mx-auto" id="servicios-container">
+    <div class="space-y-6 max-w-4xl mx-auto">
       
-      <!-- Servicio 1: Nuevo Suministro T1 -->
-      <div class="bg-yellow-400 rounded-xl overflow-hidden shadow-md cursor-pointer" id="servicio-t1">
-        <!-- Título (siempre visible) -->
-        <div class="text-center py-6" id="servicio-t1-header">
-          <h3 class="text-lg md:text-xl font-semibold text-black">
-            Nuevo Suministro T1
-          </h3>
-        </div>
-        
-        <!-- Contenido expandible (inicialmente oculto) -->
-        <div class="opacity-0 h-0 overflow-hidden" id="servicio-t1-content">
-          <div class="px-6 pb-6">
-            <div class="flex flex-col md:flex-row items-center gap-6">
-              <div class="flex-1">
-                <img src="/servicio-t1.jpg" alt="Suministro T1" class="w-full h-48 object-cover rounded-lg" />
-              </div>
-              <div class="flex-1">
-                <p class="text-black/80 text-sm leading-relaxed">
-                  Instalación y gestión completa para contar con energía eléctrica en viviendas o pequeños comercios. 
-                  Nos encargamos de todos los trámites ante la distribuidora eléctrica, cumpliendo con las normativas vigentes. 
-                  Incluye diseño de la instalación, materiales certificados y puesta en servicio.
-                </p>
-                <ul class="mt-4 text-xs text-black/70 space-y-1">
-                  <li>• Gestión de trámites administrativos</li>
-                  <li>• Instalación eléctrica completa</li>
-                  <li>• Materiales certificados incluidos</li>
-                  <li>• Garantía de 2 años</li>
-                </ul>
-              </div>
-            </div>
+      <!-- Nuevo Suministro -->
+      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer" id="servicio-suministro">
+        <div class="p-6 flex items-center space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-black rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+          </div>
+          <div class="flex-grow">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Nuevo Suministro</h3>
+            <p class="text-gray-600">Te conectamos a la red eléctrica lo más rápido posible</p>
           </div>
         </div>
       </div>
 
-      <!-- Servicio 2: Cambio de Tarifa -->
-      <div class="bg-yellow-400 rounded-xl overflow-hidden shadow-md cursor-pointer" id="servicio-cambio-tarifa">
-        <!-- Título (siempre visible) -->
-        <div class="text-center py-6" id="servicio-cambio-tarifa-header">
-          <h3 class="text-lg md:text-xl font-semibold text-black">
-            Cambio de tarifa (T1 a T2)
-          </h3>
-        </div>
-        
-        <!-- Contenido expandible (inicialmente oculto) -->
-        <div class="opacity-0 h-0 overflow-hidden" id="servicio-cambio-tarifa-content">
-          <div class="px-6 pb-6">
-            <div class="flex flex-col md:flex-row items-center gap-6">
-              <div class="flex-1">
-                <img src="/bacapenergy.jpeg" alt="Cambio de Tarifa" class="w-full h-48 object-cover rounded-lg" />
-              </div>
-              <div class="flex-1">
-                <p class="text-black/80 text-sm leading-relaxed">
-                  Tramitamos la modificación de tu tarifa eléctrica de T1 a T2 para optimizar el consumo y reducir costos significativamente. 
-                  Ideal para comercios y pequeñas industrias que requieren mayor potencia. Analizamos tu consumo actual para garantizar el máximo ahorro.
-                </p>
-                <ul class="mt-4 text-xs text-black/70 space-y-1">
-                  <li>• Análisis de consumo actual</li>
-                  <li>• Gestión ante distribuidora</li>
-                  <li>• Adecuación de instalaciones</li>
-                  <li>• Ahorro estimado del 15-25%</li>
-                </ul>
-              </div>
-            </div>
+      <!-- Cambio de tarifa -->
+      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer" id="servicio-tarifa">
+        <div class="p-6 flex items-center space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-black rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+            </svg>
+          </div>
+          <div class="flex-grow">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Cambio de tarifa (T1 - T2 - T3)</h3>
+            <p class="text-gray-600">Cambio de tarifa para aumento de potencia y ahorro porcentual.</p>
           </div>
         </div>
       </div>
 
-      <!-- Servicio 3: Certificado SRT -->
-      <div class="bg-yellow-400 rounded-xl overflow-hidden shadow-md cursor-pointer" id="servicio-certificado">
-        <!-- Título (siempre visible) -->
-        <div class="text-center py-6" id="servicio-certificado-header">
-          <h3 class="text-lg md:text-xl font-semibold text-black">
-            Certificado de puesta a tierra SRT 900/2015
-          </h3>
+      <!-- Certificado de puesta a tierra -->
+      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md cursor-pointer hover:shadow-lg transition-shadow" id="servicio-certificado">
+        <div class="p-6 flex items-center space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-black rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M12,7C13.4,7 14.8,8.6 14.8,10V11.5C15.4,11.5 16,12.4 16,13V16C16,17.4 15.4,18 14.8,18H9.2C8.6,18 8,17.4 8,16V13C8,12.4 8.6,11.5 9.2,11.5V10C9.2,8.6 10.6,7 12,7M12,8.2C11.2,8.2 10.5,8.7 10.5,10V11.5H13.5V10C13.5,8.7 12.8,8.2 12,8.2Z"/>
+            </svg>
+          </div>
+          <div class="flex-grow">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Certificado de puesta a tierra srt 900/2015</h3>
+            <p class="text-gray-800">Cumplí con la normativa certificando tu puesta a tierra..</p>
+          </div>
         </div>
         
-        <!-- Contenido expandible (inicialmente oculto) -->
         <div class="opacity-0 h-0 overflow-hidden" id="servicio-certificado-content">
-          <div class="px-6 pb-6">
-            <div class="flex flex-col md:flex-row items-center gap-6">
-              <div class="flex-1">
-                <img src="/servicio-certificado.jpg" alt="Certificado SRT" class="w-full h-48 object-cover rounded-lg" />
-              </div>
-              <div class="flex-1">
-                <p class="text-black/80 text-sm leading-relaxed">
-                  Inspección y certificación oficial que garantiza la seguridad eléctrica de tu instalación según normativa SRT 900/2015. 
-                  Documento obligatorio para empresas y comercios. Realizamos mediciones técnicas, evaluación de riesgos y emisión del certificado oficial.
-                </p>
-                <ul class="mt-4 text-xs text-black/70 space-y-1">
-                  <li>• Inspección técnica completa</li>
-                  <li>• Mediciones de resistencia</li>
-                  <li>• Certificado oficial SRT</li>
-                  <li>• Válido por 5 años</li>
-                </ul>
-              </div>
-            </div>
+          <div class="px-6 pb-6 border-t border-gray-300">
+            <p class="text-gray-700 mt-4">
+              Realizamos la certificación completa de tu sistema de puesta a tierra según la normativa SRT 900/2015. 
+              Incluye medición, informe técnico y certificado oficial.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Medidor Bidireccional -->
+      <div class="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow cursor-pointer" id="servicio-medidor">
+        <div class="p-6 flex items-center space-x-4">
+          <div class="flex-shrink-0 w-12 h-12 bg-black rounded-full flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M7,2V13H10V22L17,10H13L17,2H7Z"/>
+            </svg>
+          </div>
+          <div class="flex-grow">
+            <h3 class="text-xl font-bold text-gray-800 mb-2">Medidor Bidireccional</h3>
+            <p class="text-gray-600">Vendé la energía que te sobra, cambia tu medidor a uno bidireccional.</p>
           </div>
         </div>
       </div>
@@ -209,6 +179,8 @@ import Servicios from "../components/Servicios.astro";
     </div>
   </div>
 </section>
+
+  <Trabajos />
   </main>
 </Layout>
 
@@ -236,183 +208,146 @@ gsap.from("#hero-second-title", {
   ease: "power2.out",
 });
 
-/* ---------- Ajustes CSS recomendados (añade en tu CSS si no están) ----------
-#servicios-section { overflow: hidden; }               <-- evita saltos externos
-#servicios-container { position: relative; }           <-- contexto para animaciones
-#servicios-container > div { position: relative; }    <-- cada tarjeta relativa
-#servicios-container .card-content { overflow: hidden;} <-- ya lo garantizamos con JS
--------------------------------------------------------------------------*/
-
-/* ---------- Inicial: asegurarnos que los contenidos empiezan colapsados ---------- */
-const contentIds = [
-  "#servicio-t1-content",
-  "#servicio-cambio-tarifa-content",
-  "#servicio-certificado-content"
-];
-
-// set inicial (altura 0, ocultos)
-contentIds.forEach(id => {
-  const el = document.querySelector(id);
-  if (el) {
-    gsap.set(el, { height: 0, opacity: 0, overflow: "hidden" });
-  }
-});
-
-/* ---------- Funciones utilitarias: expandir / contraer midiendo scrollHeight ---------- */
-function expandirServicio(servicioId) {
-  const sel = `${servicioId}-content`;
-  const el = document.querySelector(sel);
-  if (!el) return gsap.timeline(); // timeline vacío si no existe
-
-  // mide la altura real
-  const fullH = el.scrollHeight;
-
-  // timeline que anima a px (no auto)
-  return gsap.timeline()
-    .to(el, {
-      height: fullH,
-      opacity: 1,
-      duration: 0.8,
-      ease: "power2.out"
-    })
-    .from(`${sel} img`, {
-      scale: 0.85,
-      opacity: 0,
-      duration: 0.6,
-      ease: "back.out(1.4)"
-    }, "-=0.45")
-    .from(`${sel} p, ${sel} ul`, {
-      y: 18,
-      opacity: 0,
-      duration: 0.45,
-      stagger: 0.08,
-      ease: "power2.out"
-    }, "-=0.35")
-    // mantener la altura fija en px (no volver a 'auto' hasta que termine todo el pin)
-    .add(() => gsap.set(el, { height: fullH }));
-}
-
-function contraerServicio(servicioId) {
-  const sel = `${servicioId}-content`;
-  const el = document.querySelector(sel);
-  if (!el) return gsap.timeline();
-
-  // Si la altura estaba en 'auto' (defensivo) la medimos; en nuestro flujo ya será px.
-  const currentH = el.scrollHeight;
-
-  return gsap.timeline()
-    .to(`${sel} p, ${sel} ul`, {
-      y: -12,
-      opacity: 0,
-      duration: 0.28,
-      stagger: 0.05,
-      ease: "power2.in"
-    })
-    .to(`${sel} img`, {
-      scale: 0.85,
-      opacity: 0,
-      duration: 0.35,
-      ease: "power2.in"
-    }, "-=0.18")
-    .to(el, {
-      height: 0,
-      opacity: 0,
-      duration: 0.45,
-      ease: "power2.in"
-    }, "-=0.25");
-}
-
-/* ---------- Timeline principal para la sección (pin + secuencia) ---------- */
-const servicios = [
-  "#servicio-t1",
-  "#servicio-cambio-tarifa",
-  "#servicio-certificado"
-];
-
-// Calculamos un end dinámico con más espacio para que la última tarjeta se contraiga
-const estimatedFactorPerCard = 1.4; // Aumentamos el factor para más espacio
-const extraSpaceForLastCard = 1.0; // Espacio adicional para que se contraiga la última
-const endDistance = () => "+=" + Math.round(window.innerHeight * (servicios.length * estimatedFactorPerCard + extraSpaceForLastCard));
-
-function getStartPosition() {
-  return window.innerWidth <= 768 ? "top 7.5%" : "top 12%";
-}
-
-const serviciosTimeline = gsap.timeline({
-  scrollTrigger: {
-    trigger: "#servicios-section",
-    start: getStartPosition(),        // cuando la sección llegue a top del viewport
-    end: endDistance,        // duracion del pin (dinámica con más espacio)
-    scrub: 0.8,              // suaviza la relación scroll <-> tiempo
-    pin: true,               // fija la sección mientras se anima
-    anticipatePin: 1,
-    // markers: true,        // usa markers en dev si quieres depurar
-  }
-});
-
-/* Construimos la secuencia: abrir 1 -> mostrar -> cerrar 1 + abrir 2 -> ... */
-serviciosTimeline
-  .add(expandirServicio(servicios[0]))
-  .to({}, { duration: 0.5 }) // pequeña pausa para "ver" el contenido
-  .add(contraerServicio(servicios[0]))
-  .add(expandirServicio(servicios[1]), "-=0.25")
-  .to({}, { duration: 0.5 })
-  .add(contraerServicio(servicios[1]))
-  .add(expandirServicio(servicios[2]), "-=0.25")
-  .to({}, { duration: 0.6 }) // Pausa más larga para ver la última tarjeta
-  .add(contraerServicio(servicios[2]))
-  .to({}, { duration: 0.4 }); // Espacio adicional al final para que se complete la contracción
-
-/* ---------- Callbacks para cuando la sección se destapa (se termina el pin) ---------- */
-/* Cuando el usuario continúa y deja la sección (onLeave), dejamos todo contraído y
-   limpiamos alturas fijas para que el layout vuelva a ser responsivo. */
-serviciosTimeline.scrollTrigger && (function(st) {
-  st.vars.onLeave = function() {
-    // asegurar todo contraído (estado final)
-    contentIds.forEach(id => {
-      const el = document.querySelector(id);
-      if (el) {
-        gsap.set(el, { height: 0, opacity: 0 });
-        el.style.overflow = "hidden";
-      }
-    });
-  };
-
-  // Si vuelve hacia arriba (enterBack) queremos tener las tarjetas en el estado inicial también
-  st.vars.onEnterBack = function() {
-    contentIds.forEach(id => {
-      const el = document.querySelector(id);
-      if (el) {
-        gsap.set(el, { height: 0, opacity: 0, overflow: "hidden" });
-      }
-    });
-  };
-})(serviciosTimeline.scrollTrigger);
-
-/* ---------- Animación entrada del título (opcional, igual que antes) ---------- */
+// Animación del título de servicios
 gsap.from("#servicios-title", {
   scrollTrigger: {
     trigger: "#servicios-title",
     start: "top 80%",
-    toggleActions: "play none none reverse",
+    toggleActions: "play none none none",
   },
   y: 30,
   opacity: 0,
   duration: 1,
-  ease: "power2.out"
+  ease: "power2.out",
 });
 
-/* ---------- Opcional: headers de tarjetas ---------- */
-gsap.from("#servicio-t1-header, #servicio-cambio-tarifa-header, #servicio-certificado-header", {
+// Animación de cada servicio con delay escalonado
+gsap.from("#servicio-suministro", {
   scrollTrigger: {
-    trigger: "#servicios-container",
-    start: "top 75%",
-    toggleActions: "play none none reverse",
+    trigger: "#servicios-section",
+    start: "top 70%",
+    toggleActions: "play none none none",
   },
-  y: 18,
+  y: 40,
   opacity: 0,
-  duration: 0.7,
-  stagger: 0.15,
-  ease: "power2.out"
+  duration: 0.8,
+  delay: 0.2,
+  ease: "power2.out",
+});
+
+gsap.from("#servicio-tarifa", {
+  scrollTrigger: {
+    trigger: "#servicios-section",
+    start: "top 70%",
+    toggleActions: "play none none none",
+  },
+  y: 40,
+  opacity: 0,
+  duration: 0.8,
+  delay: 0.4,
+  ease: "power2.out",
+});
+
+gsap.from("#servicio-certificado", {
+  scrollTrigger: {
+    trigger: "#servicios-section",
+    start: "top 70%",
+    toggleActions: "play none none none",
+  },
+  y: 40,
+  opacity: 0,
+  duration: 0.8,
+  delay: 0.6,
+  ease: "power2.out",
+});
+
+gsap.from("#servicio-medidor", {
+  scrollTrigger: {
+    trigger: "#servicios-section",
+    start: "top 70%",
+    toggleActions: "play none none none",
+  },
+  y: 40,
+  opacity: 0,
+  duration: 0.8,
+  delay: 0.8,
+  ease: "power2.out",
+});
+
+// Sistema de destacado secuencial basado en scroll
+const servicios = [
+  { id: "#servicio-suministro", progress: 0.2 },
+  { id: "#servicio-tarifa", progress: 0.4 },
+  { id: "#servicio-certificado", progress: 0.6 },
+  { id: "#servicio-medidor", progress: 0.8 }
+];
+
+// ScrollTrigger para el destacado secuencial
+ScrollTrigger.create({
+  trigger: "#servicios-section",
+  start: "top 60%",
+  end: "bottom 40%",
+  scrub: true,
+  onUpdate: (self) => {
+    const progress = self.progress;
+    
+    servicios.forEach((servicio, index) => {
+      const elemento = document.querySelector(servicio.id);
+      
+      if (progress >= servicio.progress - 0.15 && progress <= servicio.progress + 0.15) {
+        // Destacar este servicio
+        gsap.to(elemento, {
+          backgroundColor: "#facc15", // yellow-400
+          duration: 0.5,
+          ease: "power2.out"
+        });
+        
+        // Escalar ligeramente
+        gsap.to(elemento, {
+          scale: 1.02,
+          duration: 0.5,
+          ease: "power2.out"
+        });
+      } else {
+        // Volver al estado normal
+        gsap.to(elemento, {
+          backgroundColor: "#ffffff", // blanco
+          duration: 0.5,
+          ease: "power2.out"
+        });
+        
+        gsap.to(elemento, {
+          scale: 1,
+          duration: 0.5,
+          ease: "power2.out"
+        });
+      }
+    });
+  }
+});
+
+// Animación de hover adicional (opcional)
+servicios.forEach(servicio => {
+  const elemento = document.querySelector(servicio.id);
+  
+  elemento.addEventListener('mouseenter', () => {
+    gsap.to(elemento, {
+      scale: 1.05,
+      duration: 0.3,
+      ease: "power2.out"
+    });
+  });
+
+  elemento.addEventListener('mouseleave', () => {
+    // Solo volver a escala 1 si no está siendo destacado por scroll
+    const currentBg = window.getComputedStyle(elemento).backgroundColor;
+    const isHighlighted = currentBg === "rgb(250, 204, 21)"; // yellow-400 en RGB
+    
+    gsap.to(elemento, {
+      scale: isHighlighted ? 1.02 : 1,
+      duration: 0.3,
+      ease: "power2.out"
+    });
+  });
 });
 </script>
